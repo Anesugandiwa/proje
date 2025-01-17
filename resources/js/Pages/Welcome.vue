@@ -41,6 +41,7 @@
 <script>
 import NavBar from "@/Layouts/NavBar.vue";
 
+
 export default {
     layout:NavBar,
 }

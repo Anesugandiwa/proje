@@ -24,14 +24,22 @@ class ContactResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                ->label(' Name')
-                ->required()
-                ->placeholder('Enter Name'),
+                    ->label(' Name')
+                    ->required()
+                    ->placeholder('Enter Name'),
 
                 Forms\Components\TextInput::make('email')
-                ->label('email')
-                ->required()
-                ->placeholder('Enter Email')
+                    ->label('email')
+                    ->required()
+                    ->placeholder('Enter Email'),
+                Forms\Components\TextInput::make('phone')
+                    ->label('Phone')
+                    ->placeholder('Enter Phone')
+                    ->required(),
+                Forms\Components\Textarea::make('message')
+                    ->label('Message')
+                    ->placeholder('Enter Message')
+                    ->required()
             ]);
     }
 
@@ -40,33 +48,37 @@ class ContactResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                ->label('name')
-                ->sortable()
-                ->seachable(),
-                
-                Tables\Columns\TextColumn::make('status')
-                ->label('Status')
-                ->sortable()
-                ->badge()
-                ->colors([
-                    'warning' => 'pending',
-                    'success' => 'completed',
-                    'danger' => 'failed',
+                    ->label('name')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->label('email')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('phone')
+                    ->label('Enter phone Number'),
+
+                Tables\Columns\TextColumn::make('message')
+                    ->label('Message'),
+
+
 
 
             ])
+                    ->filters([
 
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
+                        // ...
+                    ])
+                    ->actions([
+                        Tables\Actions\EditAction::make(),
+                        ])
+                    ->bulkActions([
+                        Tables\Actions\BulkActionGroup::make([
+                            Tables\Actions\DeleteBulkAction::make(),
+                            ]),
+                        ]);
+
+
+
     }
 
     public static function getRelations(): array

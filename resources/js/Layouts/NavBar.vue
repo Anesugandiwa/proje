@@ -1,15 +1,16 @@
 <template>
 <nav class="bg-gray-800 p-4 flex justify-between items-center">
     <div>
-        <InertiaLink class="inertiaLink" :href>
+        <a href="/contact">
             <img  src="/images/logo.jpg" alt="Logo Loading">
-        </InertiaLink>
+        </a>
+
     </div>
     <ul class="flex space-x-4">
 
         <li>
             <!-- <router-link to="/" class="text-white hover:text-gray-300">Home</router-link> -->
-             <InertiaLink class="inertiaLinkMenu mx-1" :href>
+             <InertiaLink class="inertiaLink mx-1" :href="route('contact')">
                 <v-btn class="text-white hover:text-grey-300" variant="text" color="primary">
                     Home
                 </v-btn>
@@ -19,10 +20,10 @@
 
         <li>
             <!-- <router-link to="/contact" class="text-white hover:text-gray-300">Contact</router-link> -->
-            <InertiaLink class="inertiaLinkMenu mx-1" :href>
-                <v-btn class="text-white hover:text-grey-300" variant="text" color="primary">
+            <InertiaLink  :href="route('contact')">
+                <button class="text-white hover:text-grey-300" variant="text" color="primary">
                     Contact
-                </v-btn>
+                </button>
 
              </InertiaLink>
 
@@ -39,9 +40,11 @@
 <Footer></Footer>
 </template>
 <script>
+
 import Footer from './Footer.vue';
 export default{
     name: 'NavBar',
+
 };
 
 </script>

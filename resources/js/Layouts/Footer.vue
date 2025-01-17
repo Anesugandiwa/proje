@@ -57,7 +57,7 @@ export default {
 }
 
 .footer-bottom{
-    background-image: url("/images/footer.png");
+    background-image: url("/images");
     height: 50px !important;
     background-repeat: no-repeat;
     width: 100%;
