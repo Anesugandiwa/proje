@@ -1,5 +1,5 @@
 <template>
-<nav class="bg-gray-800 p-4 flex justify-between items-center">
+<nav class="bg-gray-800  flex justify-between items-center">
     <div>
         <a href="/contact">
             <img  src="/images/logo.jpg" alt="Logo Loading">
@@ -21,9 +21,9 @@
         <li>
             <!-- <router-link to="/contact" class="text-white hover:text-gray-300">Contact</router-link> -->
             <InertiaLink  :href="route('contact')">
-                <button class="text-white hover:text-grey-300" variant="text" color="primary">
+                <v-btn class="text-white hover:text-grey-300" variant="text" color="primary">
                     Contact
-                </button>
+                </v-btn>
 
              </InertiaLink>
 
@@ -51,6 +51,8 @@ export default{
 <style>
 nav{
     border-bottom: 1px solid blue;
+    height: 50px;
+    padding: 0.5rem 1rem;
 }
 img{
     height: 10%;
