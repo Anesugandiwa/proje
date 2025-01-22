@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 require __DIR__.'/auth.php';

@@ -45,12 +45,15 @@
 
 import FullCalendar  from "@fullcalendar/vue3";
 import dayGridPlugin from '@fullcalendar/daygrid';
-import {Calendar} from '@fullcalendar/vue3';
-import interactionPlugin, {Draggable} from '@fullcalendar/interaction';
+
 
 export default {
 
-    components:{FullCalendar},
+    components:{
+        FullCalendar,
+
+    },
+
 
     data(){
         return{
@@ -110,6 +113,7 @@ export default {
 
 
 };
+
 </script>
 
 <style>
