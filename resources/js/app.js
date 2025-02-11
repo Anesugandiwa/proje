@@ -6,6 +6,12 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createApp, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 import vuetify from './plugins/vuetify.js'
+// import Booking from './Components/Booking.vue';
+import Booking from "@/Pages/Booking.vue";
+
+const app = createApp({});
+app.component('calendar', Booking);
+app.mount("#app");
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
