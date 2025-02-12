@@ -14,23 +14,16 @@ use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
 class CalendarWidget extends FullCalendarWidget
 {
     // protected static string $view = 'filament.widgets.calendar-widget';
-    public function fetchMeetings(array $fetchInfo): array
+    protected function getOptions():array
     {
-        return Meeting::query()
-            ->where('start_time', '>=', $fetchInfo['start'])
-            ->where('end_time', '<=', $fetchInfo['end'])
-            ->get()
-            ->map(
-                fn (Meeting $meeting) => MeetingData::make()
-                    ->id($meeting->id)
-                    ->title($meeting->venue)
-                    ->start($meeting->start_time)
-                    ->end($meeting->end_time)
-                    ->url(
-                        url: MeetingResource::getUrl(name: 'view', parameters: ['record' => $meeting]),
-                        shouldOpenUrlInNewTab: true
-                    )
-            )
-            ->toArray();
+        return[
+            'initialView' => 'timeGridWeek',
+            'headerToolbar' => [
+                'left' => 'prev,next today',
+                'center' => 'title',
+                'right' => 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+            ],
+        ];
     }
+
 }

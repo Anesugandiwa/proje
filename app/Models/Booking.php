@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Meeting extends Model
+class Booking extends Model
 {
+    //
     protected $fillable =[
-        'venue',
+        'user_id',
+        'room_id',
+        'day',
+        'start',
+        'end',
         'start_time',
         'end_time'
-
-    ];
-
-    protected $casts = [
-        'start_time' => 'datetime',
-        'end_time' => 'datetime',
     ];
 }

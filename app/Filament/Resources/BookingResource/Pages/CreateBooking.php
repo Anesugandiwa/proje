@@ -3,11 +3,10 @@
 namespace App\Filament\Resources\BookingResource\Pages;
 
 use App\Filament\Resources\BookingResource;
-use Filament\Resources\Pages\Page;
+use Filament\Actions;
+use Filament\Resources\Pages\CreateRecord;
 
-class Booking extends Page
+class CreateBooking extends CreateRecord
 {
     protected static string $resource = BookingResource::class;
-
-    protected static string $view = 'filament.resources.booking-resource.pages.booking';
 }
