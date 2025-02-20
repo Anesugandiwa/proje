@@ -28,7 +28,31 @@ class CalendarWidget extends FullCalendarWidget
                 'center' => 'title',
                 'right' => 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
             ],
+          
         ];
+    }
+    public function getViewOptions():array {
+        return [
+            'height' =>'50px',
+        ];
+    }
+    public function fetchEvents(array $fetchInfo): array
+    {
+   return Meeting::query()
+       ->whereBetween('start_time', [
+            Carbon::parse($fetchInfo['start']),
+            Carbon::parse($fetchInfo['end']),
+       ])
+       ->get()
+       ->map(
+        fn (Meeting $meeting)=>[
+            'id' => $meeting->id,
+            'title' => $meeting->venue,
+            'start' => Carbon::parse($meeting->start_time)->toIso8601String(),
+            'end'   => Carbon::parse($meeting->end_time)->toIso8601String(),
+        ]
+       )
+       ->toArray();
     }
 
     public function getFormSchema(): array{
@@ -49,8 +73,20 @@ class CalendarWidget extends FullCalendarWidget
     protected function modalActions(): array
     {
         return[
+            Actions\EditAction::make()
+                ->mountUsing(
+                    function (Meeting $record, Forms\Form $form,array $arguments){
+                        $form->fill([
+                            'id' =>$record->id,
+                            'venue' =>$record->venue,
+                            'start_time' => $arguments['meeting']['start'] ?? $record->start_time,
+                            'end_time' => $arguments['meeting']['end'] ?? $record->end_time,
+                        ]);
+
+                    }
+                ),
             Actions\CreateAction::make()
-            ->mountUsing(
+                ->mountUsing(
                 function ($form, array $arguments){
                     $form->fill([
                         'venue' => $arguments['venue'] ?? null,
@@ -67,20 +103,18 @@ class CalendarWidget extends FullCalendarWidget
         ];
     }
 
+    // public function eventDidMount(): string
+    // {
+    //     return <<<JS
+    //         function({event, timeText, isStart, isEnd, isMirror, isPast, isFuture,isToday, el, view}){
+    //             el.setAttribute("x-tooltrip", "tooltrip");
+    //             el.setAttribute("x-data", "{tooltrip:' "+event.title+ "'}");
+    //         }
+    //         JS;
+    // }
 
-    public function getEvents(array $fetchInfo): array
-    {
-   return Meeting::query()
-       ->get()
-       ->map(
-        fn(Meeting $meeting)=>[
-            'venue' => $meeting->venue,
-            'start_time' => Carbon::createFromFormat('Y-m-d H:i:s', $meeting->start . ' ' . $meeting->start_time),
-            'end_time'   => Carbon::createFromFormat('Y-m-d H:i:s', $meeting->end . ' ' . $meeting->end_time),
-        ]
-       )
-       ->all();
-    }
+
+
 
 
 }
