@@ -3,16 +3,32 @@
     <footer class="theme-footer">
         <div>
             <v-container fluid>
-                <v-row>
-                    <v-col cols="12" sm="6" md="6" >
+                <v-row class="gap-8">
+                    <v-col cols="12" sm="3" md="3" >
                         <div class="footer-widget text-center-sm pa-3">
                             <div class="widget-title font-weight-light">
-                                <img height="45" class="mt-n2" src="" alt="logo"  >
+                                <img height="45" class="mt-n2" src="/images/logo.jpg" alt="logo"  >
                             </div>
+                        </div>
+                        <div>
+                            <span>Affordable co-working spaces for small businesses and entrepreneurs.</span>
+                        </div>
+                    </v-col>
+                    <v-col cols="12" sm="3" md="3">
+                        
+                        <div class="footer-widget">
+                            <h2 class="widget-title">Quick Links</h2>
+                            <ul class="footer-links">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Our Services</a></li>
+                                <li><a href="#">Pricing & Membership</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Community & Events</a></li>
+                            </ul>
                         </div>
                     </v-col>
 
-                    <v-col cols="12" sm="6" md="6" >
+                    <v-col cols="12" sm="3" md="3" >
                         <div class="footer-widget text-center-sm pa-2">
                             <h2 class="widget-title mt-3">Contact Us</h2>
                             <ul class="ml-8">
@@ -32,6 +48,10 @@
 
                 </v-row>
             </v-container>
+            <div class="footer-bottom">
+                <p>© 2025 Workspace Ltd. | <a href="#">Terms</a> | <a href="#">Privacy Policy</a></p>
+            </div>
+
         </div>
 
         <div class="footer-bottom mb-2 ">
