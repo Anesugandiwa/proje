@@ -18,10 +18,10 @@
                 
 
                     </v-col>
-                    <v-col cols ="12" sm="5" class="d-flex flex-column">
+                    <v-col cols ="12" sm="5" class="d-flex flex-column ">
                         <v-row>
-                            <v-col cols="12" sm="5">
-                                <Calender class="full-height"/>
+                            <v-col >
+                                <Calender class="full-height" />
 
                             </v-col>
                         </v-row>

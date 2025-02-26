@@ -1,12 +1,4 @@
-<template>
-    <v-container>
-      <v-card class="pa-4">
-        <FullCalendar :options="calendarOptions" />
-      </v-card>
-    </v-container>
-  </template>
-  
-  <script setup>
+<script setup>
   import { ref } from 'vue';
   import FullCalendar from '@fullcalendar/vue3';
   import dayGridPlugin from '@fullcalendar/daygrid';
@@ -16,12 +8,16 @@
   const calendarOptions = ref({
     plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin],
     initialView: 'timeGridWeek',
+    height:600,
+    
+  
     headerToolbar: {
         left: 'prev,next',
         center: 'title',
         right: 'timeGridWeek,timeGridDay'
 
     },
+
     selectable: true,
     editable: true,
     events: [
@@ -32,8 +28,20 @@
     dateClick: ({ dateStr }) => alert(`Date: ${dateStr}`)
   });
   </script>
+  <template>
+    <v-container>
+      <v-row>
+        <v-col cols="12" sm="12" >
+          <!-- <v-card class="pa-4" > -->
+            <FullCalendar :options="calendarOptions"  />
+          <!-- </v-card> -->
+
+        </v-col>
+
+      </v-row>
+
+    </v-container>
+  </template>
   
-  <style scoped>
- 
-  </style>
+
   
