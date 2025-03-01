@@ -20,13 +20,22 @@
 
         <li>
             <!-- <router-link to="/contact" class="text-white hover:text-gray-300">Contact</router-link> -->
-            <InertiaLink  :href="route('contact')">
+            <InertiaLink  href="route('contact')">
                 <v-btn class="text-white hover:text-grey-300" variant="text" color="primary">
                     Contact
                 </v-btn>
 
              </InertiaLink>
 
+        </li>
+        <li>
+            <InertiaLink href="/about">
+                <v-btn class="text-white hover:text-grey-300" variant="text" color="primary">
+                    About Us
+
+                </v-btn>
+
+            </InertiaLink>
         </li>
 
     </ul>

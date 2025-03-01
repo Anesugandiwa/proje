@@ -8,6 +8,6 @@ use Inertia\Inertia;
 class ContactController extends Controller
 {
     public function index(){
-        return Inertia('contact');
+        return Inertia::render('contact');
     }
 }
