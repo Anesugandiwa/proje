@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PagesController;
+use App\Http\controllers\ServiceController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,8 +28,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
+//Route::get('/contact',[ContactController::class,''])->name('contact');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about',[PagesController::class,'about'])->name('about');
+
+Route::get('/service',[ServiceController::class,'index'])->name('service');
 
 
 require __DIR__.'/auth.php';

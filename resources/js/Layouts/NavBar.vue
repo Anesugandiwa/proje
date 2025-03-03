@@ -10,33 +10,26 @@
 
         <li>
             <!-- <router-link to="/" class="text-white hover:text-gray-300">Home</router-link> -->
-             <InertiaLink class="inertiaLink mx-1" :href="route('contact')">
-                <v-btn class="text-white hover:text-grey-300" variant="text" color="primary">
+             
+                <v-btn>
                     Home
                 </v-btn>
 
-             </InertiaLink>
         </li>
 
         <li>
             <!-- <router-link to="/contact" class="text-white hover:text-gray-300">Contact</router-link> -->
-            <InertiaLink  href="route('contact')">
-                <v-btn class="text-white hover:text-grey-300" variant="text" color="primary">
-                    Contact
-                </v-btn>
-
-             </InertiaLink>
-
-        </li>
-        <li>
-            <InertiaLink href="/about">
-                <v-btn class="text-white hover:text-grey-300" variant="text" color="primary">
-                    About Us
+             <v-btn>
+                    <a href="/contact">Contact</a>
 
                 </v-btn>
+            </li>
+            <li>
+                7<v-btn >
+                   <a href="/about"> About Us</a>
 
-            </InertiaLink>
-        </li>
+                </v-btn>
+            </li>
 
     </ul>
 
@@ -49,10 +42,14 @@
 <Footer></Footer>
 </template>
 <script>
-
+import {Link} from '@inertiajs/vue3';
 import Footer from './Footer.vue';
 export default{
     name: 'NavBar',
+    components:{
+        Link,
+        
+    }
 
 };
 
@@ -66,6 +63,6 @@ nav{
 img{
     height: 10%;
     width: 10%;
-    border-radius: 100%;
+    /* border-radius: 100%; */
 }
 </style>
