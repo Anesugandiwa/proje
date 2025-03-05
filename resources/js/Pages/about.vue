@@ -68,6 +68,7 @@ import Footer from '@/Layouts/Footer.vue';
 
 export default{
  
+  name:'about',
   components:{
     NavBar,
     Footer,

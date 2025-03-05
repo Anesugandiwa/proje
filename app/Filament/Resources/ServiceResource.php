@@ -23,14 +23,14 @@ class ServiceResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::select('title')
+                Forms\Components\select::make('title')
                     ->options([
-                        'option1' => 'Meeting Room',
-                        'option2' => 'Private Office',
-                        'option3' =>'Dedicated Desk',
-                        'option4' =>'Hot Desk',
-                        'option5' =>'Event Space',
-                        'option6' =>'Board Room'
+                        'meeting_room' => 'Meeting Room',
+                        'private_office' => 'Private Office',
+                        'dedicated_desk' =>'Dedicated Desk',
+                        'hot_desk' =>'Hot Desk',
+                        'event_space' =>'Event Space',
+                        'board_room' =>'Board Room'
                     ])
                     ->required()
                     ->label('select Room Type'),

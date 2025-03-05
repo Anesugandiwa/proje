@@ -25,12 +25,12 @@ class RoomResource extends Resource
             ->schema([
                 Forms\Components\Select::make('type')
                     ->options([
-                        'option1' => 'meeting_room',
-                        'option2' => 'private_office',
-                        'option3' =>'desk'
+                        'meeting_room'      => 'Meeting Room',
+                        'private_office'    => 'Private Office',
+                        'desk'              =>'Desk'
                     ])
                     ->required()
-                    ->label('Type (select'),
+                    ->label('Type'),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->label('name')

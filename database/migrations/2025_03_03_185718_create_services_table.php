@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->enum('type',['meeting_room','private_office','dedicated_desk','hot_desk','event_space','board_room']);
             $table->string('description');
             $table->string('preview_image')->nullable();
             $table->timestamps();

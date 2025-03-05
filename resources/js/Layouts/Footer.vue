@@ -19,8 +19,8 @@
                         <div class="footer-widget">
                             <h2 class="widget-title">Quick Links</h2>
                             <ul class="footer-links">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Our Services</a></li>
+                                <li><a :href="route('about')">About Us</a></li>
+                                <li><a :href="route('service')">Our Services</a></li>
                                 <li><a href="#">Pricing & Membership</a></li>
                                 <li><a href="#">FAQs</a></li>
                                 <li><a href="#">Community & Events</a></li>
