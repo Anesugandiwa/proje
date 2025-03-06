@@ -6,6 +6,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\controllers\ServiceController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\isAdmin;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -17,11 +18,15 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth','App\Http\Middleware\isAdmin'])->group(function(){
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+    //->middleware(['auth', 'verified'])
+});
 
-Route::middleware('auth')->group(function () {
+
+Route::middleware('auth',)->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -33,6 +38,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/about',[PagesController::class,'about'])->name('about');
 
 Route::get('/service',[ServiceController::class,'index'])->name('service');
+
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 require __DIR__.'/auth.php';

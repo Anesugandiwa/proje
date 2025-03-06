@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('room_id');
-            $table->string('day');
-            $table->dateTime('start');
-            $table->dateTime('end');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            //$table->foreignId('user_id');
+            //$table->foreignId('room_id');
+            //$table->string('day');
+            //$table->dateTime('start');
+           // $table->dateTime('end');
+            //$table->dateTime('start_time');
+            //$table->dateTime('end_time');
 
-            $table->timestamps();
+            //$table->timestamps();
         });
     }
 

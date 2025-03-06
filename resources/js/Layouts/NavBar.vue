@@ -25,11 +25,20 @@
                 </v-btn>
             </li>
             <li>
-                7<v-btn >
-                   <a href="/about"> About Us</a>
+                <v-btn >
+                   <a href="/about"> Home</a>
+                </v-btn>
 
+            </li>
+            <li>
+                <v-btn class="primary" :href="filamentLoginUrl">
+                   LogIn
+                </v-btn>
+                <v-btn v-if="$page.props.auth.user" color="error" @click="logout">
+                    Logout
                 </v-btn>
             </li>
+
 
     </ul>
 
@@ -49,6 +58,16 @@ export default{
     components:{
         Link,
         
+    },
+    data(){
+        return{
+            filamentLoginUrl:'/admin/login',
+        };
+    },
+    methode: {
+        logout(){
+            this.$inertia.post('/logout');
+        },
     }
 
 };

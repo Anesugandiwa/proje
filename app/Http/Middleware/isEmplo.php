@@ -15,6 +15,17 @@ class isEmplo
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(!auth()->check()){
+            return redirect()->route('user.login');
+        }
+
+        if (!auth()->user()->isEmplo()) {
+            abort(403, 'page not found');
+        }
         return $next($request);
+
+       
     }
+        // return $next($request);
+    
 }

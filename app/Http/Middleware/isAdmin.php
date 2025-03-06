@@ -15,6 +15,17 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
+
+        if(!auth()->check()){
+            return redirect()->route('login');
+        }
+
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'You are not allowed to access this page');
+            
+        }
         return $next($request);
+
+       
     }
 }

@@ -21,6 +21,15 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'password' =>Hash::make('Anesu@gmail.com'),
             'username' =>'testuser',
+            'role' => 'admin',
+        ]);
+        user::factory()->create([
+            'name'=> 'Company User',
+            'email' => 'company@gmail.com',
+            'password' =>Hash::make('User@gmail.com'),
+            'username' =>'companyUser',
+            'role'=> 'company',
+            'company_name' => 'ABC Corporation',
         ]);
     }
 }
