@@ -31,6 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->topNavigation()
             ->plugin(
                 FilamentFullCalendarPlugin::make()
                     ->schedulerLicenseKey('')

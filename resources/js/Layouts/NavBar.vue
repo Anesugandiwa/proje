@@ -64,7 +64,7 @@ export default{
             filamentLoginUrl:'/admin/login',
         };
     },
-    methode: {
+    methods: {
         logout(){
             this.$inertia.post('/logout');
         },

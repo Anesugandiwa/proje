@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\isAdmin;
 use Inertia\Inertia;
 
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -18,12 +19,14 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware(['auth','App\Http\Middleware\isAdmin'])->group(function(){
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-    //->middleware(['auth', 'verified'])
-});
+// Route::middleware(['auth','App\Http\Middleware\isAdmin'])->group(function(){
+
+//     ->middleware(['auth', 'verified'])
+// });
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->name('dashboard');
 
 
 Route::middleware('auth',)->group(function () {
