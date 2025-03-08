@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('room_id');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->string('date');
             $table->time('start_time');
             $table->time('end_time');
-            $table->enum('booking_type',['one-time','montly'])->nullable;
-            $table->enum('status',['pending','confirmed','canceled'])->default('pending');
+            $table->enum('spaces',['meeting_room_east','meeting_room_west','boardroom','event_space'])->nullable;
+            $table->string('title');
+            $table->string('company_name');
+            $table->string('phone_number')->nullable();
             $table->timestamps();
         });
     }

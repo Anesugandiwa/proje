@@ -8,12 +8,13 @@ class Booking extends Model
 {
     //
     protected $fillable =[
-        'user_id',
-        'room_id',
-        'day',
-        'start',
-        'end',
+        'date',
         'start_time',
-        'end_time'
+        'end_time',
+        'spaces',
+        'title',
+        'company_name',
+        'phone_number',
+
     ];
 }

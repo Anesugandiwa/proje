@@ -23,34 +23,50 @@ class BookingResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('day')
-                ->label('Day')
+                Forms\Components\TextInput::make('date')
+                ->label('DATE')
                 ->required()
-                ->placeholder('Enter Day'),
+                ->placeholder('Enter date'),
             
-            Forms\Components\DatePicker::make('start')
-                ->label('Start Date')
+            Forms\Components\TimePicker::make('start_time')
+                ->label('Time')
                 ->required()
-                ->placeholder('Enter Start date')
+                ->placeholder('From')
                 ->native(false) // Use Filament's custom picker instead of the browser's
                 ->seconds(false),
 
-            Forms\Components\DatePicker::make('end')
-                ->label('End Date')
+            Forms\Components\TimePicker::make('end_time')
+                ->label('Time')
                 ->required()
-                ->placeholder('Enter end Date')
+                ->placeholder('To')
                 ->native(false)
                 ->seconds(false),
 
-            Forms\Components\TimePicker::make('start_time')
-                ->label('Enter Start time')
+            Forms\Components\Select::make('spaces')
+                ->options([
+                    'meeting_room_east'         => 'Meeting Room East',
+                    'meeting_room_west'         => 'Meeting Room West',
+                    'boardroom'                 =>'Board Room',
+                    'event_space'               => 'Event Space',
+                ])
+                ->label('Spaces')
                 ->required()
-                ->placeholder('Enter start time'),
+                ->placeholder('No  space selected'),
 
-            Forms\Components\TimePicker::make('end_time')
-                ->label('Enter end time')
+            Forms\Components\TextInput::make('title')
+                ->label('Booking Tittle')
                 ->required()
-                ->placeholder('Enter end time'),
+                ->placeholder('Add title'),
+            
+            Forms\Components\TextInput::make('company_name')
+            ->label('Enter Company/Individual Name')
+            ->placeholder('e.g. Omni Learning')
+            ->required(),
+
+            forms\Components\TextInput::make('phone_number')
+            ->label('Phone')
+            ->placeholder('Phone')
+            ->required(),
 
 
                
@@ -61,28 +77,38 @@ class BookingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('day')
-                ->label('day')
-                ->sortable()
-                ->searchable(),
-
-            Tables\Columns\TextColumn::make('start')
-                ->label('start')
-                ->sortable()
-                ->searchable(),
-
-            Tables\Columns\TextColumn::make('end')
-                ->label('End Date')
+                Tables\Columns\TextColumn::make('date')
+                ->label('Date')
                 ->sortable()
                 ->searchable(),
 
             Tables\Columns\TextColumn::make('start_time')
-                ->label('Enter Start time')
+                ->label('Start Time')
                 ->sortable()
                 ->searchable(),
 
             Tables\Columns\TextColumn::make('end_time')
-                ->label('Enter end time')
+                ->label('End Time')
+                ->sortable()
+                ->searchable(),
+
+            Tables\Columns\TextColumn::make('spaces')
+                ->label('Spaces')
+                ->sortable()
+                ->searchable(),
+
+            Tables\Columns\TextColumn::make('title')
+                ->label('Booking Title')
+                ->sortable()
+                ->searchable(),
+
+            Tables\Columns\TextColumn::make('company_name')
+                ->label('Company/Individual Name')
+                ->sortable()
+                ->searchable(),
+
+            Tables\Columns\TextColumn::make('phone_number')
+                ->label('Phone Number')
                 ->sortable()
                 ->searchable(),
 
