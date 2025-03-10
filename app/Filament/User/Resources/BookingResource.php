@@ -23,7 +23,7 @@ class BookingResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('date')
+                Forms\Components\DatePicker::make('date')
                 ->label('DATE')
                 ->required()
                 ->placeholder('Enter date'),

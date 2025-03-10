@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
+            $table->date('date');
             $table->time('start_time');
             $table->time('end_time');
             $table->enum('spaces',['meeting_room_east','meeting_room_west','boardroom','event_space'])->nullable;
